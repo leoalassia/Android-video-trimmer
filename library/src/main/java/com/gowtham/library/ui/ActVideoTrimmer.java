@@ -434,15 +434,9 @@ public class ActVideoTrimmer extends AppCompatActivity {
             path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "";
             if (destinationPath != null)
                 path = destinationPath;
-            int fileNo = 0;
-            String fileName = "trimmed_video_";
+            String fileName = "videotrimmed";
             File newFile = new File(path + File.separator +
-                    (fileName + fileNo) + "." + TrimmerUtils.getFileExtension(this, uri));
-            while (newFile.exists()) {
-                fileNo++;
-                newFile = new File(path + File.separator +
-                        (fileName + fileNo) + "." + TrimmerUtils.getFileExtension(this, uri));
-            }
+                    (fileName) + "." + TrimmerUtils.getFileExtension(this, uri));
             outputPath = String.valueOf(newFile);
             LogMessage.v("outputPath::" + outputPath);
             LogMessage.v("sourcePath::" + uri);
